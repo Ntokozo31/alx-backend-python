@@ -1,4 +1,4 @@
-#!/usr/bin/ env python3
+#!/usr/bin/env python3
 
 """
 This module provide a function to measure the runtime of the wait_n
