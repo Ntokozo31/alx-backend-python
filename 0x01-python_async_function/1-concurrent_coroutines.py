@@ -1,4 +1,4 @@
-#!/usr/bin/env python 3
+#!/usr/bin/env python3
 
 """
 This module contains
@@ -10,7 +10,8 @@ wait_random function.
 
 import asyncio
 from typing import List
-wait_random = __import__('0-basic_async_syntax').wait_random #import wait_random
+wait_random = __import__('0-basic_async_syntax').wait_random
+
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
@@ -25,13 +26,16 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
         List[float]: A list of float values representing the delays
         returned by wait_random.
     """
-    tasks = [] #Initialize an empty list to host tasks
+    tasks = []  # Initialize an empty list to host tasks
 
-    #Loop n times to creat and gather tasks
+    # Loop n times to creat and gather tasks
     for _ in range(n):
-        task = asyncio.create_task(wait_random(max_delay)) #Creat an asyncio task
-        tasks.append(task) #Add task to the list of tasks
 
-    delays = await asyncio.gather(*tasks) #Wait for all tasks to complete and gather result
+        # Create an asyncio task
+        task = asyncio.create_task(wait_random(max_delay))
+        tasks.append(task)  # Add task to the list of tasks
 
-    return delays #Return the list of delays
+    # Wait for all tasks to complete and gather results
+    delays = await asyncio.gather(*tasks)
+
+    return delays  # Return the list of delays
