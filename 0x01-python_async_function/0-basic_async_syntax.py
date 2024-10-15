@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+This module provide a function that
+delays between 0 and max_delay.
+"""
+
 import asyncio
 import random
 
