@@ -6,11 +6,10 @@ Async Generator
 """
 
 import asyncio
-from typing import AsyncGenerator
 import random
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def async_generator():
     """
     Coroutin will loop 10 times each time async wait 1 second
     then yield a random number from 0 to 10
