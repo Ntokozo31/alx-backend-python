@@ -14,13 +14,14 @@ async def measure_runtime() -> float:
     Coroutine that execute async_comprehension four
     times in parallel using asyncio.gather
     """
-    loop = asyncio.get_running_loop()
-    start_time = loop.time()
+    start_time = asyncio.get_running_loop().time()
 
-    await asyncio.gather(
-            async_comprehension(),
-            async_comprehension(),
-            async_comprehension(),
-            async_comprehension())
-    end_time = loop.time()
+    task = [
+            asyncio.create_task(async_comprehension()),
+            asyncio.create_task(async_comprehension()),
+            asyncio.create_task(async_comprehension()),
+            asyncio.create_task(async_comprehension())
+            ]
+    await asyncio.gather(*task)
+    end_time = asyncio.get_running_loop().time()
     return end_time - start_time
