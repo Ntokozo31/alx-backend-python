@@ -19,3 +19,10 @@ class BasicCache(BaseCaching):
         if key is None or key not in self.cache_data:
             return None
         return self.cache_data[key]
+
+
+    def print_cache(self):
+        """Print the current cache data"""
+        print("Current Cache data:")
+        for key, value in self.cache_data.items():
+            print(f"{key}: {value}")
