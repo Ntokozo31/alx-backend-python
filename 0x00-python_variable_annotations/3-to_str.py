@@ -5,7 +5,7 @@
 """
 
 
-def to_str(n: str) -> str:
+def to_str(n: float) -> str:
     """
     This function will returns string to float
     """
